@@ -1,5 +1,4 @@
 === Mibbit Webchat ===
-Donate link: http://example.com/
 Tags: irc, chat, mibbit
 Requires at least: 2.7
 Tested up to: 2.9
@@ -27,5 +26,7 @@ You can give your users a place to chat.
 
 == Changelog ==
 
+= 0.6.1 =
+* Fixed the plugin URL.
 = 0.6 =
 * Beta release.
