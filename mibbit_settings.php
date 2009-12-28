@@ -17,9 +17,7 @@
         Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
         MA 02110-1301, USA.
  */
-include('wplib/utils_formbuilder.inc.php');
 include('wplib/utils_sql.inc.php');
-include('wplib/utils_tablebuilder.inc.php');
 global $wpdb;
 if($_POST[mibbit_hidden] == "Y") {	
 	if (empty($_POST['mibbit-server'])) {

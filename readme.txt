@@ -26,6 +26,8 @@ You can give your users a place to chat.
 
 == Changelog ==
 
+= 0.6.2 =
+* Fixed two include errors.
 = 0.6.1 =
 * Fixed the plugin URL.
 = 0.6 =
