@@ -3,7 +3,7 @@
 Plugin Name: Mibbit Webchat
 Plugin URI: http://joshualuckers.nl/portfolio
 Description: The official Mibbit Webchat plugin for WordPress. With this plugin you can add a widget to your blog or page.
-Version: 0.6.2
+Version: 0.6.3
 Author: Joshua Lückers
 Author URI: http://joshualuckers.nl
         Copyright 2009 Joshua Lückers < http://joshualuckers.nl >
