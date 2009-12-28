@@ -109,5 +109,5 @@ if($_POST[mibbit_hidden] == "Y") {
 			<input type="submit" name="Submit" class="button-primary" value="Save Changes" /> 
 		</p> 
 	</form>
-	<p>Place &lt;!-- mibbit_webchat --&gt; in your page and/or </p>
+	<p>Place the following in your page and/or post to embed a widget: &lt;!-- mibbit_webchat --&gt; </p>
 </div>
