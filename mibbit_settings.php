@@ -38,7 +38,7 @@ if($_POST[mibbit_hidden] == "Y") {
 	else {
 		update_option('mibbit-nick', trim($_POST['mibbit-nick']));
 	}
-	if (empty($_POST['mibbit-settings'])) {
+	if (empty($_POST['mibbit-settingsid'])) {
 		update_option('mibbit-settingsid', "");
 	}
 	else {

@@ -27,7 +27,7 @@ You can give your users a place to chat.
 == Changelog ==
 
 = 0.6.3 =
-* Fixed the default settingsid.
+* Fixed the default settingsid and a typo.
 = 0.6.2 =
 * Fixed two include errors.
 = 0.6.1 =
