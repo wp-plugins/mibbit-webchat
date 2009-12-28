@@ -26,6 +26,8 @@ You can give your users a place to chat.
 
 == Changelog ==
 
+= 0.6.4 =
+* Added a description how you can add the widget to your page and/or post.
 = 0.6.3 =
 * Fixed the default settingsid and a typo.
 = 0.6.2 =
