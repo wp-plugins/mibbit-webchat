@@ -26,6 +26,8 @@ You can give your users a place to chat.
 
 == Changelog ==
 
+= 1.1.2 =
+* Fixed a issue with the widget being to small (a setting for this is comming soon).
 = 1.1.1 =
 * Fixed the settings page.
 = 1.1 =
