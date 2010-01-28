@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Mibbit Webchat
-Plugin URI: http://joshualuckers.nl/portfolio
+Plugin URI: http://joshualuckers.nl/
 Description: The official Mibbit Webchat plugin for WordPress. With this plugin you can add a widget to your blog or page.
-Version: 0.6.6
 Author: Joshua Lückers
 Author URI: http://joshualuckers.nl
+Version: 1.1
 
 Copyright 2009 Joshua Lückers < http://joshualuckers.nl >
         
@@ -24,72 +24,94 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 MA 02110-1301, USA.
 */
-register_activation_hook(__FILE__, 'mibbitWebchat_activate' );
-register_deactivation_hook(__FILE__, 'mibbitWebchat_deactivate');
+
+//Include the SQL class.
 include('wplib/utils_sql.inc.php');
+//When the plugin gets activated: register it.
+register_activation_hook(__FILE__, 'mibbit_activate' );
+//When deactivating the plugin: unregister it.
+register_deactivation_hook(__FILE__, 'mibbit_deactivate');
+//Tell WordPress to search for the following tag.
 define('WP_MIBBIT', '/<!-- mibbit_webchat -->/i');
+//Tell WordPress to filter the content and call the function mibbit_render.
+add_filter('the_content', 'mibbit_render');
+//Add a settings page menu item.
+add_action('admin_menu', 'mibbit_menu');
 
-//Render the widget
-function renderMibbit($oldcontent) {
-	$newcontent = $oldcontent;
-	if (preg_match(WP_MIBBIT, $oldcontent, $matches)) {
-		$content .= "\n\n";
-		$content .= getMibbitFrame();
-		$newcontent = preg_replace("/$matches[0]/i", $content, $oldcontent);
-	}
-	return $newcontent;
-}
-//add the filter
-add_filter('the_content', 'renderMibbit');
-
-//add it menu item to the settings.
-function mibbitMenu() {
-	add_options_page('Mibbit Webchat', 'Mibbit Webchat', 1, 'Mibbit Webchat', 'mibbitSettings');  
-}
-
-//get the mibbit settings page.
-function mibbitSettings() {
-	include('mibbit_settings.php');
-}
-//when the admin menu is loaded add this filter.
-add_action('admin_menu', 'mibbitMenu');
-
-//returns the mibbit iframe
-function getMibbitFrame() {
-	$server = get_option('mibbit-server');
-	$channels = urlencode(get_option('mibbit-channels'));
-	$nick = urlencode(get_option('mibbit-nick'));
-	$settingsid = get_option('mibbit-settingsid');
-	return '<iframe width=100% height=500 scrolling=no style="border:0" src="http://widget.mibbit.com/?server=' .$server. '&channel=' .$channels. '&nick=' .$nick. '&settings=' .$settingsid. '"></iframe>';
-}
-
-//when activating the plugin
-function mibbitWebchat_activate() {
+/**
+ * Activate the plugin and set the default options.
+ */
+function mibbit_activate() {
 	global $wpdb;
-	
 	if (!get_option('mibbit-server')) {
-		update_option('mibbit-server', "irc.mibbit.net");
+		update_option('mibbit-server',  'irc.mibbit.net');
 	}
 	if (!get_option('mibbit-channels')) {
-		update_option('mibbit-channels', "#mibbit.wp");
+		update_option('mibbit-channels', '#mibbit.wp');
 	}
 	if (!get_option('mibbit-nick')) {
-		update_option('mibbit-nick', "WpUser_????");
+		update_option('mibbit-nick', 'WpUser_????');
 	}
 	if (!get_option('mibbit-settingsid')) {
-		update_option('mibbit-settingsid', "");
+		update_option('mibbit-settingsid', '');
 	}
-	
+	if (!get_option('mibbit-iframe-width')) {
+		update_option('mibbit-iframe-width', '500px;');
+	}
+	if (!get_option('mibbit-iframe-height')) {
+		update_option('mibbit-iframe-height', '500px');
+	}
 	$wpdb->show_errors();
 }
 
-//when deactivating the plugin
-function mibbitWebchat_deactivate() {
+/**
+ * Deactivate the plugin and unset the options set by the plugin.
+ */
+function mibbit_deactivate() {
 	global $wpdb;
-	
 	delete_option('mibbit-server');
 	delete_option('mibbit-channels');
 	delete_option('mibbit-nick');
 	delete_option('mibbit-settingsid');
+	delete_option('mibbit-iframe-width');
+	delete_option('mibbit-iframe-height');
+}
+
+/**
+ * Render the widget. 
+ * @param $content The page content.
+ */
+function mibbit_render($content) {
+	$content = preg_replace(WP_MIBBIT, mibbit_create_iframe(), $content);
+	return $content;
+}
+
+/**
+ * Create the iframe needed to load the Mibbit Widget.
+ * @return The iframe.
+ */
+function mibbit_create_iframe() {
+	$server = get_option('mibbit-server');
+	$channels = urlencode(get_option('mibbit-channels'));
+	$nick = urlencode(get_option('mibbit-nick'));
+	$settingsid = get_option('mibbit-settingsid');
+	$width = get_option('mibbit-iframe-width')	;
+	$height = get_option('mibbit-iframe-height');
+	
+	return '<iframe width=' .$width. ' height=' .$height. ' scrolling=no style="border:0" src="https://widget.mibbit.com/?server=' .$server. '&channel=' .$channels. '&nick=' .$nick. '&settings=' .$settingsid. '"></iframe>';
+}
+
+/**
+ * Add the mibbit settings menu item.
+ */
+function mibbit_menu() {
+	add_options_page('Mibbit Webchat', 'Mibbit Webchat', 1, 'Mibbit Webchat', 'mibbit_settings');
+}
+
+/**
+ * Get the mibbit settings page.
+ */
+function mibbit_settings() {
+	include('mibbit_settings.php');
 }
 ?>

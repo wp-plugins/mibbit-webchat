@@ -26,6 +26,10 @@ You can give your users a place to chat.
 
 == Changelog ==
 
+= 1.1 =
+* The embeded widget does use SSL by default now (It does not connect by default to a SSL IRC server).
+= 1.0 =
+* Rewritten from scratch.
 = 0.6.6 =
 * Tested up to WordPress 2.9.1
 = 0.6.5 =
