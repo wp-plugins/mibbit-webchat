@@ -5,7 +5,7 @@ Plugin URI: http://joshualuckers.nl/
 Description: The official Mibbit Webchat plugin for WordPress. With this plugin you can add a widget to your blog or page.
 Author: Joshua Lückers
 Author URI: http://joshualuckers.nl
-Version: 1.1.2
+Version: 1.2
 
 Copyright 2009 Joshua Lückers < http://joshualuckers.nl >
         

@@ -17,7 +17,8 @@ You can also use the Mibbit widget to provide real time chat on your own website
 
 1. Upload `mibbit-webchat` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Place &lt;!-- mibbit_webchat --&gt; in your page and/or blog
+3. Change the default settings via Settings -> Mibbit Webchat
+4. Place &lt;!-- mibbit_webchat --&gt; in your page and/or blog
 
 == Frequently Asked Questions ==
 
@@ -26,6 +27,11 @@ You can give your users a place to chat.
 
 == Changelog ==
 
+= 1.2 =
+* Tested up to WordPress 2.9.2
+* Added options for width and height.
+* Added a donate button.
+* Settings can be changed via Settings -> Mibbit Webchat
 = 1.1.2 =
 * Fixed a issue with the widget being to small (a setting for this is comming soon).
 = 1.1.1 =
