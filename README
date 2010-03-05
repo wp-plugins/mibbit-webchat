@@ -27,6 +27,8 @@ You can give your users a place to chat.
 
 == Changelog ==
 
+= 1.2.1 =
+* Fixed a small bug with the default width.
 = 1.2 =
 * Tested up to WordPress 2.9.2
 * Added options for width and height.
