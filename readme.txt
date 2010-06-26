@@ -1,10 +1,10 @@
 === Mibbit Webchat ===
-Tags: irc, chat, mibbit
+Tags: irc, chat, mibbit, webchat
 Requires at least: 2.7
-Tested up to: 2.9.1
+Tested up to: 3.0
 Stable tag: trunk
 
-This plugin makes it possible to add a Mibbit widget to your blog and/or page.
+This plugin makes it possible to add a Mibbit widget to your blog and/or page. Change your settings and place &lt;!-- mibbit_webchat --&gt; in your page and/or blog to make it work.
 
 == Description ==
 
@@ -19,6 +19,7 @@ You can also use the Mibbit widget to provide real time chat on your own website
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Change the default settings via Settings -> Mibbit Webchat
 4. Place &lt;!-- mibbit_webchat --&gt; in your page and/or blog
+5. Make me happy and make a donation (see the settings page)
 
 == Frequently Asked Questions ==
 
@@ -27,6 +28,8 @@ You can give your users a place to chat.
 
 == Changelog ==
 
+= 1.2.2 =
+* Added support for WordPress 3
 = 1.2.1 =
 * Fixed a small bug with the default width.
 = 1.2 =

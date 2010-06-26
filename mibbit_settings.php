@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2009 Joshua Lückers < http://joshualuckers.nl >
+Copyright 2010 Joshua Lückers < http://joshualuckers.nl >
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
