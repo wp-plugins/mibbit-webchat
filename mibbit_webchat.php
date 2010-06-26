@@ -5,7 +5,7 @@ Plugin URI: http://joshualuckers.nl/
 Description: The official Mibbit Webchat plugin for WordPress. With this plugin you can add a widget to your blog or page. Change your settings and place &lt;!-- mibbit_webchat --&gt; in your page and/or blog to make it work.
 Author: Joshua Lückers
 Author URI: http://joshualuckers.nl
-Version: 1.2.2
+Version: 1.2.3
 
 Copyright 2010 Joshua Lückers < http://joshualuckers.nl >
         
@@ -105,7 +105,7 @@ function mibbit_create_iframe() {
  * Add the mibbit settings menu item.
  */
 function mibbit_menu() {
-	add_options_page('Mibbit Webchat', 'Mibbit Webchat', 1, 'Mibbit Webchat', 'mibbit_settings');
+	add_options_page('Mibbit Webchat', 'Mibbit Webchat', 'manage_options', 'mibbit-webchat', 'mibbit_settings');
 }
 
 /**

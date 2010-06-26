@@ -28,6 +28,8 @@ You can give your users a place to chat.
 
 == Changelog ==
 
+= 1.2.3 =
+* Fixed the "You do not have permission to access this page." error users would see when opening the settings page
 = 1.2.2 =
 * Added support for WordPress 3
 = 1.2.1 =
